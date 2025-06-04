@@ -1,0 +1,3 @@
+[submodule "ros-noetic_ws/src/swd_starter_kit_bringup"]
+	path = ros-noetic_ws/src/swd_starter_kit_bringup
+	url = git@github.com:IDEC-ezWheel/swd_starter_kit_bringup.git
