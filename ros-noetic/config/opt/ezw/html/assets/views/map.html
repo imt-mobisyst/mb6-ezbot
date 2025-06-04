@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+
+  <script src="../js/three.js"></script>
+  <script src="../js/eventemitter2.min.js"></script>
+  <script src="../js/roslib.js"></script>
+  <script src="../js/ros3d.js"></script>
+
+  <script>
+    /**
+     * Setup all visualization elements when the page is loaded.
+     */
+    function init() {
+      // Connect to ROS.
+      var ros = new ROSLIB.Ros({
+        url: 'ws://192.168.2.200:9090'
+      });
+
+      // Create the main viewer.
+      var viewer = new ROS3D.Viewer({
+        divID: 'map',
+        width: 800,
+        height: 600,
+        background: '#5D6E6C',
+        antialias: true,
+        cameraPose: {
+          x: 10,
+          y: 10,
+          z: 10
+        }
+      });
+
+      // Setup the grid client.
+      var gridClient = new ROS3D.OccupancyGridClient({
+        ros: ros,
+        rootObject: viewer.scene,
+        continuous: true
+        // color: {
+        //   r:125,g:125,b:200,a:255
+        // }
+        // 93 110 108
+      });
+
+      var grid = new ROS3D.Grid({
+        color: 0x8F9396,
+        num_cells: 100,
+        lineWidth: 1,
+        cellSize: 1
+      });
+
+      viewer.addObject(grid);
+
+      // Setup a client to listen to TFs.
+      var tfClient = new ROSLIB.TFClient({
+        ros: ros,
+        angularThres: 0.01,
+        transThres: 0.01,
+        rate: 10.0,
+        fixedFrame: '/map'
+      });
+
+      var laser = new ROS3D.LaserScan({
+        ros: ros,
+        tfClient: tfClient,
+        rootObject: viewer.scene,
+        topic: '/laser_1/scan',
+        material: { size: 0.05, color: 0x37F9F9 }
+      });
+
+      var pose = new ROS3D.Pose({
+        ros: ros,
+        tfClient: tfClient,
+        rootObject: viewer.scene,
+        topic: '/slam_out_pose',
+        color: 0xFF2100
+      });
+
+      window.setInterval(function () {
+        document.getElementById('SDI').activated = laser.SDI;
+        document.getElementById('SLS').activated = laser.SLS;
+      }, 1000);
+    }
+
+  </script>
+</head>
+
+<body onload="init()">
+  <div id="map" </div>
+    <span id="SDI"></span>
+    <span id="SLS"></span>
+</body>
+
+</html>

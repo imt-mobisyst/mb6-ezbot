@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>SWD® Starter Kit Control Page</title>
+  <link rel="icon" type="image/png" href="assets/img/favicon_EZW_01.png"><!-- Required meta tags -->
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <!-- Fonts and icons -->
+  <link rel="stylesheet" type="text/css" href="assets/css/material-icons.css"><!-- Material Kit CSS -->
+  <link href="assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet"><!-- Custom CSS -->
+
+  <style type="text/css">
+    :root {
+      --s-loader-wrapper-bg-color: rgb(21, 22, 43);
+      --s-loader-width: 20px;
+      --s-loader-height: var(--s-loader-width);
+      --s-loader-border-color-trans: rgba(29, 161, 242, 0.2);
+      --s-loader-border-color-full: rgb(29, 161, 242);
+    }
+
+    body {
+      margin: 0;
+      background: var(--s-loader-wrapper-bg-color, rgb(21, 22, 43));
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      overflow-y: scroll;
+      overflow: hidden;
+    }
+
+    .spinning-loader {
+      width: var(--s-loader-width);
+      height: var(--s-loader-height);
+      border: 5px solid var(--s-loader-border-color-trans);
+      border-left-color: var(--s-loader-border-color-full);
+      border-radius: 50%;
+      background: transparent;
+      animation-name: rotate-s-loader;
+      animation-iteration-count: infinite;
+      animation-duration: 1s;
+      animation-timing-function: linear;
+      position: relative;
+    }
+
+    @keyframes rotate-s-loader {
+      from {
+        transform: rotate(0);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .exemplecentury {
+      font-family: "Century Gothic", fantasy;
+    }
+
+    .exempleroboto {
+      font-family: "Roboto", fantasy;
+    }
+
+    .OFF {
+      color: #858585;
+    }
+
+    .green {
+      color: #4ea752;
+    }
+
+    .green-light {
+      animation:
+        greenLight 1s infinite;
+    }
+
+    @keyframes greenLight {
+      0% {
+        color: #303030;
+      }
+
+      25% {
+        color: #303030;
+      }
+
+      50% {
+        color: #4ea752;
+      }
+
+      75% {
+        color: #303030;
+      }
+
+      100% {
+        color: #303030;
+      }
+    }
+
+    .red {
+      color: #da3a36;
+    }
+
+    .red-light {
+      animation:
+        redLight 1s infinite;
+    }
+
+    @keyframes redLight {
+      0% {
+        color: #303030;
+      }
+
+      25% {
+        color: #303030;
+      }
+
+      50% {
+        color: #da3a36;
+      }
+
+      75% {
+        color: #303030;
+      }
+
+      100% {
+        color: #303030;
+      }
+    }
+
+    .dark-edition .card .danger-flashing .card-icon,
+    .dark-edition .card .danger-flashing .card-text,
+    .dark-edition .card .danger-flashing:not(.card-header-icon):not(.card-header-text),
+    .dark-edition .card.bg-danger,
+    .dark-edition .card.card-rotate.bg-danger .front,
+    .dark-edition .card.card-rotate.bg-danger .back {
+      animation:
+        dangerFlashing 0.75s infinite;
+    }
+
+    @keyframes dangerFlashing {
+      0% {
+        background: #505050;
+      }
+
+      25% {
+        background: #505050;
+      }
+
+      50% {
+        background: #da3a36;
+      }
+
+      75% {
+        background: #505050;
+      }
+
+      100% {
+        background: #505050;
+      }
+    }
+
+    .alert-flashing {
+      animation:
+        alertFlashing 0.5s infinite;
+    }
+
+    @keyframes alertFlashing {
+      0% {
+        background-color: #1a1a1a;
+      }
+
+      25% {
+        background-color: #1a1a1a;
+      }
+
+      50% {
+        background-color: #da3a36;
+      }
+
+      75% {
+        background-color: #1a1a1a;
+      }
+
+      100% {
+        background-color: #1a1a1a;
+      }
+    }
+
+    .material-icons.md-60 {
+      font-size: 60px;
+    }
+
+    @media (min-width: 768px) {
+      .row {
+        position: relative;
+      }
+
+      .top-align-text {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      .left-bottom-align-text {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+
+      .right-bottom-align-text {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+    }
+
+    .center {
+      position: absolute;
+      top: 40%;
+      left: 40%;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+
+<body class="dark-edition" id="main-background">
+  <div class="wrapper">
+    <div class="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <a class="navbar-brand" style='font-size: 200%;'><i id="cas-active"
+                class="material-icons red-light">fiber_manual_record</i>
+              <strong>SWD<sup>®</sup> Starter Kit</strong> Control
+              Page</a>
+          </div>
+          <div><img id="logo_img"
+              style='width: 300px; object-fit: contain; float: right; padding-top: 1%; padding-right: 1%'
+              src="./assets/img/logo-ez-Wheel.png"></div>
+        </div>
+      </nav><!-- End Navbar -->
+      <div class="content">
+        <div class="row">
+          <div style="width: 600px;">
+            <div class="card card-chart">
+              <div id="camera-status" class="card-header-warning">
+                <h4 class="card-title"><strong>Safety
+                    Functions</strong></h4>
+              </div>
+              <div class="card-body">
+                <a class="navbar-brand"><i id="sto-active" class="material-icons OFF">fiber_manual_record</i>
+                  <strong>STO</strong> - Safe Torque Off (Emergency
+                  Stop) SIL3 / PLe</a>
+              </div>
+              <div class="card-body">
+                <a class="navbar-brand"><i id="sdi-active" class="material-icons OFF">fiber_manual_record</i>
+                  <strong>SDI</strong> - Safe Direction (forward
+                  prohibited) SIL2 / PLd</a>
+              </div>
+              <div class="card-body">
+                <a class="navbar-brand"><i id="sls-active" class="material-icons OFF">fiber_manual_record</i>
+                  <strong>SLS</strong> - Safely Limited Speed (0.3
+                  m/s max) SIL2 / PLd</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-5 col-lg-5"><img id="safety_img" style='width: 500px; object-fit: contain; float: left;'
+              src="assets/img/NONE_fonctions-securitaire.png">
+          </div>
+          <div class="col-sm-12">
+            <div class="card">
+              <div class="card-header-warning">
+                <h4 class="card-title"><strong>Status</strong></h4>
+              </div>
+              <div class="card-body">
+                <div class="tab-content">
+                  <div class="row">
+                    <div class="col sm-6">
+                      <div class="tab-pane active" id="map" style="width:820px;height:620px;">
+                        <!-- <object id="embed_map" type="text/html" data="./assets/views/map.html" width="100%"
+                          height="100%"> -->
+                        <!-- <embed id="embed_map" type="text/html" src="./assets/views/map.html" width="100%" height="100%"> -->
+                        <div id="spinning-loader" class="spinning-loader center" style='width: 150px; height:150px'>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col sm-3" style='font-size: 160%;'>
+                      <div class="container">
+                        <div>
+                          <br>
+                        </div>
+                        <div>
+                          <i class="material-icons md-60">speed</i>
+                        </div>
+                        <div>
+                          <span id="vel">0.00</span> m/s
+                        </div>
+                        <div>
+                          <br>
+                        </div>
+                        <div>
+                          <i class="material-icons md-60">explore</i>
+                        </div>
+                        <div>
+                          <span id="yaw">0</span> °
+                        </div><button id="clear_map_btn" type="button" class="btn left-bottom-align-text"
+                          onclick="clear_map_onclick()">Clear
+                          Map</button>
+                      </div>
+                    </div>
+                    <div class="col sm-3">
+                      <div><img style='width: 700px; object-fit: contain; float: right;'
+                          src="./assets/img/Starter_KIT_DET_02.png"></div><button id="reboot_btn" type="button"
+                        class="btn right-bottom-align-text" style="right: 160px;"
+                        onclick="reboot_onclick()">Reboot</button>
+                      <button id="shutdown_btn" type="button" class="btn right-bottom-align-text" style="right: 20px;"
+                        onclick="shutdown_onclick()">Shutdown</button>
+                    </div>
+                    <!-- <div class="copyright ">
+                      Copyright &copy; ez-Wheel 2021, All Rights Reserved
+                      <br> <strong>SWD<sup>®</sup> Starter Kit</strong> Control Page
+                      <br> Powered by <a href="http://www.ez-wheel.com" target="_blank">ez-Wheel</a>
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <footer class="footer">
+          <div class="container-fluid">
+            <div class="copyright">
+              Copyright &copy; ez-Wheel 2021, All Rights Reserved
+              <br> <strong>SWD<sup>®</sup> Starter Kit</strong> Control Page
+              <br> Powered by <a href="http://www.ez-wheel.com" target="_blank">ez-Wheel</a>
+            </div>
+          </div>
+        </footer> -->
+      </div>
+    </div><!--   Core JS Files   -->
+    <script src="./assets/js/core/jquery.min.js"></script>
+    <script src="./assets/js/core/popper.min.js"></script>
+    <script src="./assets/js/core/bootstrap-material-design.min.js"></script>
+    <!-- <script src="./assets/js/plugins/default-passive-events.js"></script>-->
+
+    <!-- <script src="./assets/js/plugins/perfect-scrollbar.jquery.min.js"></script> -->
+
+    <!-- Place this tag in your head or just before your close body tag. -->
+
+    <script async defer src="./assets/js/buttons.js"></script>
+    <!-- Chartist JS -->
+
+    <script src="./assets/js/plugins/chartist.min.js"></script>
+    <!--  Notifications Plugin    -->
+
+    <script src="./assets/js/plugins/bootstrap-notify.js"></script>
+    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+
+    <script src="./assets/js/material-dashboard.js?v=2.1.0"></script>
+    <!-- ROS libjs -->
+
+    <script src="./assets/js/eventemitter2.min.js"></script>
+    <script src="./assets/js/roslib.min.js"></script>
+    <!-- ROS3D libjs -->
+
+    <script src="./assets/js/three.js"></script>
+    <script src="./assets/js/ros3d.js"></script>
+    <!-- ROS interface -->
+
+    <script src="./assets/js/app.js"></script>
+  </div>
+</body>
+
+</html>

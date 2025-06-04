@@ -1,0 +1,9 @@
+[
+   {
+      "name": "SWD_CORE",
+      "nbStepRevolutionElec": 6,
+      "nbPolePair": 5,
+      "reduction": 14.0,
+      "diameter": 125.0
+   }
+]
