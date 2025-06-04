@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=ros-humble Terminal
+Comment=
+Exec=/bin/sh -c "xhost + && docker exec -u swd_sk -ti -e DISPLAY=${DISPLAY} ros-humble /bin/bash"
+Icon=org.xfce.terminal
+Path=
+Terminal=true
+StartupNotify=false

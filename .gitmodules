@@ -1,3 +1,15 @@
 [submodule "ros-noetic_ws/src/swd_starter_kit_bringup"]
 	path = ros-noetic_ws/src/swd_starter_kit_bringup
 	url = git@github.com:IDEC-ezWheel/swd_starter_kit_bringup.git
+[submodule "ros-humble_ws/src/swd_ros2_controllers"]
+	path = ros-humble_ws/src/swd_ros2_controllers
+	url = git@github.com:imt-mobisyst/swd_ros2_controllers.git
+	branch = ros2-humble
+[submodule "ros-humble_ws/src/swd_starter_kit_description"]
+	path = ros-humble_ws/src/swd_starter_kit_description
+	url = git@github.com:imt-mobisyst/swd_starter_kit_description.git
+	branch = ros2-humble
+[submodule "ros-humble_ws/src/swd_starter_kit_bringup"]
+	path = ros-humble_ws/src/swd_starter_kit_bringup
+	url = git@github.com:imt-mobisyst/swd_starter_kit_bringup.git
+	branch = ros2-humble

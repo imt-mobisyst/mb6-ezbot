@@ -3,8 +3,8 @@
 VERSION=$(cat changelog | grep -m1 'urgency' | sed 's/^.* (//' | sed 's/) .*$//')
 
 NAME=ros
-SUFFIX=noetic
-UBUNTU=20.04
+SUFFIX=humble
+UBUNTU=22.04
 
 help() {
   echo "Usage: rebuild.sh -w <WORKSPACE_DIR>"
@@ -98,7 +98,7 @@ DOCKER_BUILDKIT=1 docker build --tag $NAME-$SUFFIX:$VERSION --rm \
   # use --network=host for can0 access
   # use -v /dev:/dev -v /run/udev:/run/udev:ro for ttyUSBx access
   # use --restart=always to auto-start at system boot
-  docker run --name $NAME-$SUFFIX --restart=always -dti --tmpfs /tmp --shm-size 1g --privileged -v /dev:/dev -v /run/udev:/run/udev:ro --cap-add=NET_ADMIN -w /home/$USER -v $workspace:/home/$USER --network=host $NAME-$SUFFIX:$VERSION $USER $PWD $SUDO $UID $GID || exit 1
+  docker run --name $NAME-$SUFFIX --restart=always -dti --tmpfs /tmp --shm-size 1g --privileged -v /dev:/dev -v /run/udev:/run/udev:ro -v /dev/input:/dev/input --cap-add=NET_ADMIN -w /home/$USER -v $workspace:/home/$USER --network=host $NAME-$SUFFIX:$VERSION $USER $PWD $SUDO $UID $GID || exit 1
 echo ""
 echo "Successfully created :"
 echo " - image     : '$NAME-$SUFFIX:$VERSION'"
