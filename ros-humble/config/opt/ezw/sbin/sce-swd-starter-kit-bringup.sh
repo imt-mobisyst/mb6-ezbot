@@ -18,8 +18,8 @@ kill_all() {
 case "$1" in
 "start")
     kill_all
-    # ros2 launch swd_starter_kit_bringup starter_kit.launch
-    ros2 run swd_ros2_controllers swd_diff_drive_controller --ros-args -p baseline_m:=0.485 
+    ros2 launch swd_starter_kit_bringup starter_kit.launch.py
+    #ros2 run swd_ros2_controllers swd_diff_drive_controller --ros-args -p baseline_m:=0.485 
     ;;
 "stop")
     kill_all
