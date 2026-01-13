@@ -95,10 +95,10 @@ rm -rf /var/www/html
 ln -s /opt/ezw/html /var/www
 
 # Test colcon build
-if [ ! -d $home/ros-humble_ws/install ]; then
-  source /opt/install/ros-humble/setup.bash
-  cd $home/ros-humble_ws/
-  colcon build
+if [ ! -d /home/$user/ros-humble_ws/install ]; then
+	source /opt/install/ros-humble/setup.bash
+	cd /home/$user/ros-humble_ws/
+	colcon build
 fi
 
 # Create docker ready flag
