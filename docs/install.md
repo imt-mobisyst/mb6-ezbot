@@ -62,18 +62,20 @@ docker update --restart=no ros-noetic
 ```
 
 Build the new one whith linked working directories to `mb6-ezbot` version.
+On the ezbot side: 
 
 ```sh
+ssh swd_sk@192.168.50.2
+
 cd $HOME
 ln -s mb6-ezbot/ros-humble
 ln -s mb6-ezbot/ros-humble_ws
 
-cd ros-humble # /!\ ROS_DOMAIN_ID in ~/ros-humble/Dockerfile should be corect
+cd ros-humble 
 ./rebuild.sh -w ~ -u
-
-`sudo ip link set wlan1 down`
 ```
 
+Do not forget, your _ROS_DOMAIN_ID_ in _~/ros-humble/Dockerfile_ should be corect.
 
 ## Memos
 
