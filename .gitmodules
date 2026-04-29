@@ -13,3 +13,9 @@
 	path = ros-humble_ws/src/swd_starter_kit_bringup
 	url = git@github.com:imt-mobisyst/swd_starter_kit_bringup.git
 	branch = ros2-humble
+[submodule "ros-humble_ws/src/pkg-basic"]
+	path = ros-humble_ws/src/pkg-basic
+	url = git@github.com:imt-mobisyst/pkg-basic
+[submodule "ros-humble_ws/src/pkg-multibot"]
+	path = ros-humble_ws/src/pkg-multibot
+	url = git@github.com:imt-mobisyst/pkg-multibot
