@@ -57,6 +57,8 @@ scp -r . swd_sk@192.168.50.2:mb6-ezbot
 Deseable the old `ros-noetic` version :
 
 ```sh
+ssh swd_sk@192.168.50.2
+
 docker stop ros-noetic
 docker update --restart=no ros-noetic 
 ```
@@ -65,8 +67,6 @@ Build the new one whith linked working directories to `mb6-ezbot` version.
 On the ezbot side: 
 
 ```sh
-ssh swd_sk@192.168.50.2
-
 cd $HOME
 ln -s mb6-ezbot/ros-humble
 ln -s mb6-ezbot/ros-humble_ws
