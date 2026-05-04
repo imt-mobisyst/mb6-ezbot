@@ -75,7 +75,17 @@ cd ros-humble
 ./rebuild.sh -w ~ -u
 ```
 
-Do not forget, your _ROS_DOMAIN_ID_ in _~/ros-humble/Dockerfile_ should be corect.
+You will require to build again the _ROS_ packages as super-user inside the docker.
+
+```sh
+docker exec -it -u swd_sk ros-humble bash
+cd mb6-ezbot/ros-humble_ws
+sudo su
+source /opt/ros/humble/setip.bash
+colcon build
+exit
+/opt/ezw/sbin/sce-swd-starter-kit-bringup.sh start
+```
 
 ## Memos
 
