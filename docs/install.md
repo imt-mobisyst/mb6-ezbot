@@ -34,8 +34,7 @@ iface wlan1 inet dhcp
 Fix IP on IOT using DHCP reservation using [local dhcp interface](http://10.120.2.8:3000)
 
 ```
-ezbot41 10.120.2.40 - StarterKit 3924EA
-ezbot41 10.120.2.41 - StarterKit xxx
+ezbot41 10.120.2.41 - StarterKit 3924EA
 ezbot43 10.120.2.43 - StarterKit xxx
 ezbot44 10.120.2.44 - StarterKit xxx
 ```
@@ -89,8 +88,8 @@ cd mb6-ezbot/ros-humble_ws
 sudo su
 source /opt/ros/humble/setup.bash
 colcon build
-/opt/ezw/sbin/sce-swd-starter-kit-bringup.sh start
 exit
+/opt/ezw/sbin/sce-swd-starter-kit-bringup.sh start
 ```
 
 ## Memos
