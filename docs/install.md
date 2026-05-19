@@ -23,7 +23,7 @@ Default SSID: SWD-StarterKit-<mac>
 Default password: swd_starterkit
 Default IP: 10.10.0.1/24
 
-Edit `/etc/network/interfaces`:
+Edit `/etc/network/interfaces` to be conform to `./resources/network-interfaces-iot.conf` :
 ```
 auto wlan1
 iface wlan1 inet dhcp
@@ -35,9 +35,9 @@ Fix IP on IOT using DHCP reservation using [local dhcp interface](http://10.120.
 
 ```
 ezbot41 10.120.2.40 - StarterKit 3924EA
-ezbot41 10.120.2.41 - 
-ezbot43 10.120.2.43
-ezbot44 10.120.2.44
+ezbot41 10.120.2.41 - StarterKit xxx
+ezbot43 10.120.2.43 - StarterKit xxx
+ezbot44 10.120.2.44 - StarterKit xxx
 ```
 
 ## Prepare install : 
@@ -65,27 +65,32 @@ docker update --restart=no ros-noetic
 ```
 
 Build the new one whith linked working directories to `mb6-ezbot` version.
-On the ezbot side: 
+On the ezbot side (ATTENTION, you should do that with a good, open connection): 
 
 ```sh
 cd $HOME
 ln -s mb6-ezbot/ros-humble
 ln -s mb6-ezbot/ros-humble_ws
 
-cd ros-humble 
+cd mb6-ezbot/ros-humble 
 ./rebuild.sh -w ~ -u
 ```
 
 You will require to build again the _ROS_ packages as super-user inside the docker.
+It is the same process for updates.
 
 ```sh
+cd $HOME
+cd mb6-ezbot
+git pull
+git submodule update
 docker exec -it -u swd_sk ros-humble bash
 cd mb6-ezbot/ros-humble_ws
 sudo su
-source /opt/ros/humble/setip.bash
+source /opt/ros/humble/setup.bash
 colcon build
-exit
 /opt/ezw/sbin/sce-swd-starter-kit-bringup.sh start
+exit
 ```
 
 ## Memos
