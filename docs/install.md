@@ -34,7 +34,8 @@ iface wlan1 inet dhcp
 Fix IP on IOT using DHCP reservation using [local dhcp interface](http://10.120.2.8:3000)
 
 ```
-ezbot41 10.120.2.41 (Fatma)
+ezbot41 10.120.2.40 - StarterKit 3924EA
+ezbot41 10.120.2.41 - 
 ezbot43 10.120.2.43
 ezbot44 10.120.2.44
 ```
