@@ -1,21 +1,21 @@
 [submodule "ros-noetic_ws/src/swd_starter_kit_bringup"]
 	path = ros-noetic_ws/src/swd_starter_kit_bringup
-	url = git@github.com:IDEC-ezWheel/swd_starter_kit_bringup.git
+	url = https://github.com/IDEC-ezWheel/swd_starter_kit_bringup.git
 [submodule "ros-humble_ws/src/swd_ros2_controllers"]
 	path = ros-humble_ws/src/swd_ros2_controllers
-	url = git@github.com:imt-mobisyst/swd_ros2_controllers.git
+	url = https://github.com/imt-mobisyst/swd_ros2_controllers.git
 	branch = ros2-humble
 [submodule "ros-humble_ws/src/swd_starter_kit_description"]
 	path = ros-humble_ws/src/swd_starter_kit_description
-	url = git@github.com:imt-mobisyst/swd_starter_kit_description.git
+	url = https://github.com/imt-mobisyst/swd_starter_kit_description.git
 	branch = ros2-humble
 [submodule "ros-humble_ws/src/swd_starter_kit_bringup"]
 	path = ros-humble_ws/src/swd_starter_kit_bringup
-	url = git@github.com:imt-mobisyst/swd_starter_kit_bringup.git
+	url = https://github.com/imt-mobisyst/swd_starter_kit_bringup.git
 	branch = ros2-humble
 [submodule "ros-humble_ws/src/pkg-basic"]
 	path = ros-humble_ws/src/pkg-basic
-	url = git@github.com:imt-mobisyst/pkg-basic
+	url = https://github.com/imt-mobisyst/pkg-basic
 [submodule "ros-humble_ws/src/pkg-multibot"]
 	path = ros-humble_ws/src/pkg-multibot
-	url = git@github.com:imt-mobisyst/pkg-multibot
+	url = https://github.com/imt-mobisyst/pkg-multibot
